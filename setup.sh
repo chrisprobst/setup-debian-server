@@ -22,9 +22,7 @@ else
 	# Set kr0e account password
 	printf "\n${bold}Creating kr0e user account password${normal}\n"
 	passwd kr0e
-	
-	# Login as kr0e
-	su kr0e
-	cd
-	curl -L http://install.ohmyz.sh | sh
 fi
+
+# Login as kr0e & install ohmyzsh
+sudo -u kr0e -H sh -c "cd; curl -L http://install.ohmyz.sh | sh"

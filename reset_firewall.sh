@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Reset everything
-sudo iptables -F
-sudo iptables -X
-sudo iptables -t nat -F
-sudo iptables -t nat -X
-sudo iptables -t mangle -F
-sudo iptables -t mangle -X
-sudo iptables -t raw -F
-sudo iptables -t raw -X
-sudo iptables -t security -F
-sudo iptables -t security -X
-sudo iptables -P INPUT ACCEPT
-sudo iptables -P FORWARD ACCEPT
-sudo iptables -P OUTPUT ACCEPT
+iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+iptables -t raw -F
+iptables -t raw -X
+iptables -t security -F
+iptables -t security -X
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT

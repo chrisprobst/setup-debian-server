@@ -25,4 +25,4 @@ else
 fi
 
 # Login as kr0e & install ohmyzsh
-sudo -u kr0e -H sh -c "cd; curl -L http://install.ohmyz.sh | sh"
+su -c "cd; curl -L http://install.ohmyz.sh | sh" -m kr0e

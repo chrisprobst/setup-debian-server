@@ -25,4 +25,6 @@ else
 fi
 
 # Login as kr0e & install ohmyzsh
-su -c "cd; curl -L http://install.ohmyz.sh | sh" -m kr0e
+echo "# Auto-generated" > /home/kr0e/.zshrc
+chown kr0e:kr0e /home/kr0e/.zshrc
+su - kr0e -c "cd /home/kr0e; rm .zshrc; curl -L http://install.ohmyz.sh | sh;"

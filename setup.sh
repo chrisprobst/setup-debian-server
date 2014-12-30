@@ -12,16 +12,16 @@ apt-get install zsh git nano curl htop build-essential
 
 
 if id -u kr0e >/dev/null 2>&1; then
-	echo "User kr0e already registered, skipping..."
+        echo "User kr0e already registered, skipping..."
 else
-	# Create kr0e user account
-	printf "\n${bold}Creating kr0e user account${normal}\n"
-	useradd -m -d /home/kr0e -s /bin/zsh kr0e
-	
+        # Create kr0e user account
+        printf "\n${bold}Creating kr0e user account${normal}\n"
+        useradd -m -d /home/kr0e -s /bin/zsh -U -G sudo kr0e
+        chown kr0e : kr0e /home/kr0e
 
-	# Set kr0e account password
-	printf "\n${bold}Creating kr0e user account password${normal}\n"
-	passwd kr0e
+        # Set kr0e account password
+        printf "\n${bold}Creating kr0e user account password${normal}\n"
+        passwd kr0e
 fi
 
 # Login as kr0e & install ohmyzsh

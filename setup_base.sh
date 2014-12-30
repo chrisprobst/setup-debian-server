@@ -8,7 +8,7 @@ fi
 
 # Install important programs
 apt-get update
-apt-get install zsh git nano curl htop build-essential
+apt-get install zsh git nano curl htop build-essential mercurial bison
 
 
 if id -u kr0e >/dev/null 2>&1; then

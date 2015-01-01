@@ -23,4 +23,4 @@ rm -f reset_firewall.sh
 Final steps:
 -------------
 
-Change ssh port and deactive root login etc.
+Change ssh port and deactive root login etc. Allow only main user.

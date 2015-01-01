@@ -19,3 +19,8 @@ rm -f setup_base.sh
 rm -f setup_firewall.sh
 rm -f reset_firewall.sh
 ```
+
+Final steps:
+-------------
+
+Change ssh port and deactive root login etc.

@@ -18,7 +18,8 @@ echo "auth_param digest program /usr/lib/squid3/digest_pw_auth -c /etc/squid3/pa
 auth_param digest realm proxy
 acl authenticated proxy_auth REQUIRED
 http_access allow authenticated
-http_port 1337" > /etc/squid3/squid.conf
+http_port 1337
+cache deny all" > /etc/squid3/squid.conf
 
 # Setup user for proxy usage
 htdigest -c /etc/squid3/passwords proxy kr0e

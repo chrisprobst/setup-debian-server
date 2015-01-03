@@ -11,14 +11,14 @@ apt-get update
 apt-get install squid3 apache2-utils
 
 # Safe old file
-mv /etc/squid3/squid3.conf /etc/squid3/backup_squid3.conf
+mv /etc/squid3/squid.conf /etc/squid3/backup_squid.conf
 
 # Setup 
 echo "auth_param digest program /usr/lib/squid3/digest_pw_auth -c /etc/squid3/passwords
 auth_param digest realm proxy
 acl authenticated proxy_auth REQUIRED
 http_access allow authenticated
-http_port 1337" > /etc/squid3/squid3.conf
+http_port 1337" > /etc/squid3/squid.conf
 
 # Setup user for proxy usage
 htdigest -c /etc/squid3/passwords proxy kr0e

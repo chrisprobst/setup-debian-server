@@ -18,3 +18,6 @@ iptables -A OUTPUT -d 0.0.0.0/0 -j ACCEPT
 # That's ok
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A FORWARD -j DROP
+
+
+apt-get install iptables-persistent

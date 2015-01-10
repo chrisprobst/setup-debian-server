@@ -19,5 +19,7 @@ iptables -A OUTPUT -d 0.0.0.0/0 -j ACCEPT
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A FORWARD -j DROP
 
-
+# Install autosave for rules
 apt-get install iptables-persistent
+
+# Further info: http://www.thomas-krenn.com/de/wiki/Iptables_Firewall_Regeln_dauerhaft_speichern

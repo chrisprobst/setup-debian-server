@@ -11,6 +11,9 @@ rm -rf /var/www/*
 mkdir /var/www/indyforge
 mkdir /var/www/matthesse
 
+# Clone indyforge website
+git clone https://chrisprobst@bitbucket.org/indy-forge/website.git /var/www/indyforge
+
 # Virtual host for indyforge
 echo "<VirtualHost *:80>
 ServerAdmin webmaster@localhost

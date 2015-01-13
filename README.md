@@ -29,4 +29,4 @@ rm -f setup_proxy.sh
 Final steps:
 -------------
 
-Change ssh port and deactive root login etc. Allow only main user.
+Change ssh port and deactive root login etc. Allow only main users.

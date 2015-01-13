@@ -23,7 +23,7 @@ else
         passwd kr0e
 
         # Make sudo
-        usermod -a -G sudo
+        usermod -a -G sudo kr0e
 fi
 
 # Login as kr0e & install ohmyzsh

@@ -19,7 +19,7 @@ else
         passwd matt
 
         # Make sudo
-        usermod -a -G sudo
+        usermod -a -G sudo matt
 fi
 
 # Login as matt & install ohmyzsh

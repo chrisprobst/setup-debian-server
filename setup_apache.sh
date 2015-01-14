@@ -8,8 +8,13 @@ fi
 
 # Remove old files/folders
 rm -rf /var/www/*
+
+# Setup folders and set rights
 mkdir /var/www/indyforge
+chown -R kr0e:kr0e /var/www/indyforge
+
 mkdir /var/www/matthesse
+chown -R matt:matt /var/www/matthesse
 
 # Clone indyforge website
 git clone https://chrisprobst@bitbucket.org/indy-forge/website.git /var/www/indyforge

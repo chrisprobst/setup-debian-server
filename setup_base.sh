@@ -8,7 +8,7 @@ fi
 
 # Install important programs
 apt-get update
-apt-get install zsh git nano curl htop build-essential mercurial bison rsync grep telnet apache2
+apt-get install zsh git nano curl htop build-essential mercurial bison rsync grep telnet apache2 tmux
 
 
 if id -u kr0e >/dev/null 2>&1; then

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make sure no illegal port is open for usage
-iptables -A INPUT -p tcp -m tcp -m multiport --dports 80,1337,7133,8669,53289 -j ACCEPT
+iptables -A INPUT -p tcp -m tcp -m multiport --dports 80,443,1337,7133,8080,8669,53289 -j ACCEPT
 iptables -A INPUT -p udp -m udp -m multiport --dports 53290 -j ACCEPT
 iptables -A INPUT -m conntrack -j ACCEPT  --ctstate RELATED,ESTABLISHED
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT

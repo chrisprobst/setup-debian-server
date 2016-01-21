@@ -1,25 +1,32 @@
-#!/bin/bash
+# Drop anything
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
 
-# Make sure no illegal port is open for usage
-iptables -A INPUT -p tcp -m tcp -m multiport --dports 80,1337,7133,8669,53289 -j ACCEPT
-iptables -A INPUT -p udp -m udp -m multiport --dports 53290 -j ACCEPT
-iptables -A INPUT -m conntrack -j ACCEPT  --ctstate RELATED,ESTABLISHED
-iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# Allow loopback
 iptables -A INPUT -i lo -j ACCEPT
-iptables -A INPUT -j DROP
+iptables -A OUTPUT -o lo -j ACCEPT
 
-# This would only allow outgoing related traffic!
-# iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-# iptables -A OUTPUT -j DROP
+# Allow established and related incoming connections
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
-# Do do not care, allow everything for now!
+# Allow established outgoing connections
+iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+# Drop invalid packets
+iptables -A INPUT -m conntrack --ctstate INVALID -j DROP
+
+# Allow all incoming SSH
+iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+# Allow all incoming HTTP & HTTPS
+iptables -A INPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+# [Warning] Do do not care, allow everything for now
 iptables -A OUTPUT -d 0.0.0.0/0 -j ACCEPT
 
-# That's ok
-iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD -j DROP
-
 # Install autosave for rules
-apt-get install iptables-persistent
-
+# apt-get install iptables-persistent
 # Further info: http://www.thomas-krenn.com/de/wiki/Iptables_Firewall_Regeln_dauerhaft_speichern
